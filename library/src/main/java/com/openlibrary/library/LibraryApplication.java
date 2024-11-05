@@ -23,17 +23,8 @@ public class LibraryApplication {
 
 @RestController
 class View{
-	@GetMapping("/users")
+	@GetMapping("/")
 	public String homePage() throws SQLException{
-		Controller controller = Controller.getInstance();
-
-		int userCount = controller.getUserCount();
-
-		String returnString = "Found " + userCount + " users in the database\n<table> <tr> <th>ID</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Administrator</th> </tr>";
-		for(int i = 0; i < userCount; ++i){
-
-		}
-		returnString += "</table>";
-		return returnString;
+		return "";
 	}
 }
