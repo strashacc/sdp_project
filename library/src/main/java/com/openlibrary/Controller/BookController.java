@@ -18,11 +18,6 @@ public class BookController {
         addCommand.execute();
     }
 
-    public void undoAddBook() {
-        AddBookCommand addCommand = new AddBookCommand(BookService.getInstance(), AddBookCommand.lastAddedBook);
-        addCommand.undo(); // This will now reference the last added book
-    }
-
 
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
