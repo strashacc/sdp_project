@@ -10,8 +10,6 @@ import com.openlibrary.Service.Observer;
 public class BookService {
     private static BookService instance;
     private List<Book> books;
-    private Command lastCommand;
-
 
     private BookService() {
         books = new ArrayList<>();
@@ -35,16 +33,6 @@ public class BookService {
     public void removeBook(int id) {
         books.removeIf(book -> book.getId() == id);
         notifyObservers(null);
-    }
-
-    public void undoLastAction() {
-        if (lastCommand != null) {
-            lastCommand.undo();
-        }
-    }
-
-    public void setLastCommand(Command command) {
-        this.lastCommand = command;
     }
 
     private List<Observer> observers = new ArrayList<>();
