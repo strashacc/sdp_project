@@ -18,8 +18,5 @@ public class RemoveBookCommand implements Command {
         bookService.setLastCommand(this);
     }
 
-    @Override
-    public void undo() {
-        // Optionally, store the removed book and re-add it
-    }
+
 }
