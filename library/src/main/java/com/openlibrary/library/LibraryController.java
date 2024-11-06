@@ -37,6 +37,10 @@ public class LibraryController {
         return returnArrayList;
     }
 
+    public boolean addBook(Book book) throws SQLException{
+        return statement.execute(String.format("INSERT INTO books(title, author, description, img_link, year) VALUES('%s', '%s', '%s', '%s', %d);", book.getTitle(), book.getAuthor(), book.getDescription(), book.getImgLink(), book.getYear()));
+    }
+
     public int getUserCount() throws SQLException{
         return this.countRows("users");
     }
