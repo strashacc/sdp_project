@@ -18,11 +18,6 @@ public class LibraryFacade {
         bookService.addObserver(notificationService);
     }
 
-    public void addBook(String type, int id, String title, String author, String imgLink) {
-        Book book = BookFactory.createBook(type, id, title, author, imgLink);
-        AddBookCommand addCommand = new AddBookCommand(bookService, book);
-        addCommand.execute();
-    }
     public void addBook(String type, String title, String author, String imgLink){
         Book book = BookFactory.createBook(type, getBooks().size(), title, author, imgLink);
         AddBookCommand addCommand = new AddBookCommand(bookService, book);
