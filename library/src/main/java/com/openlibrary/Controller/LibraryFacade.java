@@ -29,6 +29,13 @@ public class LibraryFacade {
         removeCommand.execute();
     }
 
+    public void addExternalBook(ExternalBook externalBook) {
+        Book adaptedBook = new ExternalBookAdapter(externalBook);
+        AddBookCommand addCommand = new AddBookCommand(bookService, adaptedBook);
+        addCommand.execute();
+    }
+
+
     public List<Book> getBooks() {
         return bookService.getAllBooks();
     }
