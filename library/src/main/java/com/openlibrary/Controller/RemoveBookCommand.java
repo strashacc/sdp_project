@@ -16,6 +16,7 @@ public class RemoveBookCommand implements Command {
     public void execute() {
         bookService.removeBook(bookId);
         bookService.setLastCommand(this);
+        bookService.notifyObservers(null);
     }
 
     @Override
