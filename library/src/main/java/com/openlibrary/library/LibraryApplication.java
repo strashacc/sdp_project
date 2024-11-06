@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.sql.SQLException;
 import java.text.Annotation;
 
@@ -27,34 +29,5 @@ public class LibraryApplication {
 
 @Controller
 class View{
-	@GetMapping("/")
-	public String homePage(Model model) throws SQLException{
-		LibraryController controller = LibraryController.getInstance();
-
-		model.addAttribute("userCount", controller.getUserCount());
-		model.addAttribute("bookCount", controller.getBookCount());
-
-		return "home";
-	}
-	@GetMapping("/books")
-	public String booksPage(Model model) throws SQLException{
-		LibraryController controller = LibraryController.getInstance();
-
-		model.addAttribute("books", controller.getBooks());
-
-		return "books";
-	}
-	@PostMapping("/books")
-	public String postMethodName(@RequestParam String title,
-								 @RequestParam String author,
-								 @RequestParam String description,
-								 @RequestParam String link,
-								 @RequestParam int year) throws SQLException {
-		LibraryController controller = LibraryController.getInstance();
-		System.out.println(author);
-		
-		controller.addBook(new Book.BookBuilder().setTitle(title).setAuthor(author).setDescription(description).setImgLink(link).setYear(year).build());
-		return "redirect:/books";
-	}
 	
 }
