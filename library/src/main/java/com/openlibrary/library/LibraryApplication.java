@@ -38,6 +38,21 @@ class View{
 
 		return "books";
 	}
+	@PostMapping("/books/external")
+	public String addExternalBook(@RequestParam int uniqueCode,
+                              @RequestParam String bookName,
+                              @RequestParam String bookAuthor,
+                              @RequestParam String imgLink,
+                              Model model) {
+
+    	ExternalBook externalBook = new ExternalBook(uniqueCode, bookName, bookAuthor, imgLink);
+    	LibraryFacade facade = new LibraryFacade();
+    	facade.addExternalBook(externalBook);
+
+   	 model.addAttribute("books", facade.getBooks());
+    	return "books";
+	}
+
 	@PostMapping("/books")
 	public String postMethodName(@RequestParam String title
 								,@RequestParam String author
