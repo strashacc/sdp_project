@@ -31,10 +31,7 @@ public class AddBookCommand implements Command {
     public void execute() {
         bookService.addBook(book);
     }
-    @Override
-    public void undo() {
-        bookService.removeBook(book.getId());
-    }
+   
 
 
     }
