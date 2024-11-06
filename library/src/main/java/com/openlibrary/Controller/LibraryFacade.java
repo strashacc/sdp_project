@@ -7,6 +7,8 @@ import com.openlibrary.Service.NotificationService;
 
 import java.util.List;
 
+import com.openlibrary.Model.*;
+
 // LibraryFacade.java
 public class LibraryFacade {
     private BookService bookService;

@@ -34,6 +34,7 @@ public class BookService {
     }
     public void removeBook(int id) {
         books.removeIf(book -> book.getId() == id);
+        notifyObservers(null);
     }
 
     public void undoLastAction() {

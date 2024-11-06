@@ -21,7 +21,11 @@ public class NotificationService implements Observer {
 
     @Override
     public void update(Book book) {
-        System.out.println("Notification: New book added - " + book.getTitle());
+        if(book == null){
+            System.out.println("A book hass been removed");
+        }
+        else
+            System.out.println("Notification: New book added - " + book.getTitle());
     }
 }
 
