@@ -5,17 +5,6 @@ public class User {
     private String firstName, lastName, email, password;
     private boolean administrator;
 
-    public User(String first_name, String last_name, String email){
-        this.firstName = first_name; 
-        this.lastName = last_name; 
-        this.email = email;
-        this.id = 0;
-        for(int i = 0; i < this.email.length(); ++i){
-            this.id *= 10;
-            this.id += this.email.charAt(i);
-            System.out.println(id);
-        }
-    }
     public User(UserBuilder builder){
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
@@ -37,13 +26,6 @@ public class User {
     }
     public boolean isAdministrator() {
         return administrator;
-    }
-    public static void main(String[] args){
-        User user0 = new User("Sayan", "Aukatov", "sayantrashacc@gmail.com");
-        User user1 = new User("Jaslan", "Aukatov", "saymonauk@gmail.com");
-
-        System.out.println(user0.getId());
-        System.out.println(user1.getId());
     }
 
     public  class UserBuilder{
