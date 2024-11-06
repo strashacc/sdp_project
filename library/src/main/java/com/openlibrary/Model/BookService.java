@@ -4,7 +4,6 @@ package com.openlibrary.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.openlibrary.Controller.Command;
 import com.openlibrary.Service.Observer;
 
 public class BookService {
